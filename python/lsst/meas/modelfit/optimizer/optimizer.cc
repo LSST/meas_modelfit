@@ -42,11 +42,11 @@ namespace meas {
 namespace modelfit {
 namespace {
 
-using PyOptimizerObjective = py::class_<OptimizerObjective, std::shared_ptr<OptimizerObjective>>;
-using PyOptimizerControl = py::class_<OptimizerControl, std::shared_ptr<OptimizerControl>>;
+using PyOptimizerObjective = py::class_<OptimizerObjective>;
+using PyOptimizerControl = py::class_<OptimizerControl>;
 using PyOptimizerHistoryRecorder =
-        py::class_<OptimizerHistoryRecorder, std::shared_ptr<OptimizerHistoryRecorder>>;
-using PyOptimizer = py::class_<Optimizer, std::shared_ptr<Optimizer>>;
+        py::class_<OptimizerHistoryRecorder>;
+using PyOptimizer = py::class_<Optimizer>;
 
 PyOptimizerObjective declareOptimizerObjective(lsst::cpputils::python::WrapperCollection &wrappers) {
     return wrappers.wrapType(PyOptimizerObjective(wrappers.module, "OptimizerObjective"), [](auto &mod, auto &cls) {

@@ -41,7 +41,7 @@ namespace modelfit {
 namespace {
 
 void declarePrior(lsst::cpputils::python::WrapperCollection &wrappers) {
-    using PyPrior = py::class_<Prior, std::shared_ptr<Prior>>;
+    using PyPrior = py::class_<Prior>;
 
     wrappers.wrapType(PyPrior(wrappers.module, "Prior"), [](auto &mod, auto &cls) {
         cls.def("getTag", &Prior::getTag);
@@ -58,7 +58,7 @@ void declarePrior(lsst::cpputils::python::WrapperCollection &wrappers) {
 
 void declareMixturePrior(lsst::cpputils::python::WrapperCollection &wrappers) {
     using Class = MixturePrior;
-    using PyClass = py::class_<Class, std::shared_ptr<Class>, Prior>;
+    using PyClass = py::class_<Class, Prior>;
     wrappers.wrapType(PyClass(wrappers.module, "MixturePrior"), [](auto &mod, auto &cls) {
         cls.def(py::init<std::shared_ptr<Mixture>, std::string const &>(), "mixture"_a, "tag"_a = "");
         cls.def_static("getUpdateRestriction", &Class::getUpdateRestriction,
@@ -71,8 +71,8 @@ void declareMixturePrior(lsst::cpputils::python::WrapperCollection &wrappers) {
 void declareSemiEmpiricalPrior(lsst::cpputils::python::WrapperCollection &wrappers) {
     using Class = SemiEmpiricalPrior;
     using Control = SemiEmpiricalPriorControl;
-    using PyControl = py::class_<Control, std::shared_ptr<Control>>;
-    using PyClass = py::class_<Class, std::shared_ptr<Class>, Prior>;
+    using PyControl = py::class_<Control>;
+    using PyClass = py::class_<Class, Prior>;
 
     static auto clsControl =
             wrappers.wrapType(PyControl(wrappers.module, "SemiEmpiricalPriorControl"), [](auto &mod, auto &cls) {
@@ -97,8 +97,8 @@ void declareSemiEmpiricalPrior(lsst::cpputils::python::WrapperCollection &wrappe
 void declareSoftenedLinearPrior(lsst::cpputils::python::WrapperCollection &wrappers) {
     using Class = SoftenedLinearPrior;
     using Control = SoftenedLinearPriorControl;
-    using PyControl = py::class_<Control, std::shared_ptr<Control>>;
-    using PyClass = py::class_<Class, std::shared_ptr<Class>, Prior>;
+    using PyControl = py::class_<Control>;
+    using PyClass = py::class_<Class, Prior>;
 
     static auto clsControl =
             wrappers.wrapType(PyControl(wrappers.module, "SoftenedLinearPriorControl"), [](auto &mod, auto &cls) {

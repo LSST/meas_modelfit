@@ -35,7 +35,7 @@ namespace lsst {
 namespace meas {
 namespace modelfit {
 
-using PyLikelihood = py::class_<Likelihood, std::shared_ptr<Likelihood>>;
+using PyLikelihood = py::class_<Likelihood>;
 
 void wrapLikelihood(lsst::cpputils::python::WrapperCollection &wrappers) {
     // py::module::import("lsst.meas.modelfit.model");

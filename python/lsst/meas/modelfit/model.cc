@@ -38,7 +38,7 @@ namespace lsst {
 namespace meas {
 namespace modelfit {
 
-using PyModel = py::class_<Model, std::shared_ptr<Model>>;
+using PyModel = py::class_<Model>;
 
 void wrapModel(lsst::cpputils::python::WrapperCollection &wrappers) {
     wrappers.wrapType(PyModel(wrappers.module, "Model"), [](auto &mod, auto &cls) {

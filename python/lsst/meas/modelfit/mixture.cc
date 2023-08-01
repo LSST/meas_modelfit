@@ -44,8 +44,8 @@ namespace {
 
 using PyMixtureComponent = py::class_<MixtureComponent>;
 using PyMixtureUpdateRestriction =
-        py::class_<MixtureUpdateRestriction, std::shared_ptr<MixtureUpdateRestriction>>;
-using PyMixture = py::class_<Mixture, std::shared_ptr<Mixture>>;
+        py::class_<MixtureUpdateRestriction>;
+using PyMixture = py::class_<Mixture>;
 
 PyMixtureComponent declareMixtureComponent(lsst::cpputils::python::WrapperCollection &wrappers) {
     return wrappers.wrapType(

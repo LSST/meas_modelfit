@@ -38,12 +38,12 @@ namespace meas {
 namespace modelfit {
 
 using PyUnitTransformedLikelihoodControl =
-        py::class_<UnitTransformedLikelihoodControl, std::shared_ptr<UnitTransformedLikelihoodControl>>;
+        py::class_<UnitTransformedLikelihoodControl>;
 
-using PyEpochFootprint = py::class_<EpochFootprint, std::shared_ptr<EpochFootprint>>;
+using PyEpochFootprint = py::class_<EpochFootprint>;
 
 using PyUnitTransformedLikelihood =
-        py::class_<UnitTransformedLikelihood, std::shared_ptr<UnitTransformedLikelihood>, Likelihood>;
+        py::class_<UnitTransformedLikelihood, Likelihood>;
 
 void wrapUnitTransformedLikelihood(lsst::cpputils::python::WrapperCollection &wrappers) {
     wrappers.wrapType(

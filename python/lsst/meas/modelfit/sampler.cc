@@ -38,8 +38,8 @@ namespace lsst {
 namespace meas {
 namespace modelfit {
 
-using PySamplingObjective = py::class_<SamplingObjective, std::shared_ptr<SamplingObjective>>;
-using PySampler = py::class_<Sampler, std::shared_ptr<Sampler>>;
+using PySamplingObjective = py::class_<SamplingObjective>;
+using PySampler = py::class_<Sampler>;
 
 void wrapSampler(lsst::cpputils::python::WrapperCollection &wrappers) {
     wrappers.wrapType(PySamplingObjective(wrappers.module, "SamplingObjective"), [](auto &mod, auto &cls) {
